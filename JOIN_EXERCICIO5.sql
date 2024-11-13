@@ -1,0 +1,36 @@
+CREATE DATABASE JOINS_FOLHA_DE_EXERCICIO_5;
+
+USE JOINS_FOLHA_DE_EXERCICIO_5;
+
+CREATE TABLE filmes(
+	ID_FILME INT,
+    ID_CATEGORIA INT,
+	TITULO_FILME VARCHAR (30),
+    PRIMARY KEY (ID_FILME),
+    FOREIGN KEY(ID_CATEGORIA) REFERENCES categorias( ID_CATEGORIA)
+    );
+    
+
+CREATE TABLE categorias(
+	NOME VARCHAR(10),
+	ID_CATEGORIA INT,
+	ID_FILME INT,
+    PRIMARY KEY (ID_CATEGORIA)
+);
+    
+INSERT INTO filmes VALUES (
+	(1, 25, 'FIREBALL'),
+    (2, 67, 'UM BEIJO'),
+    (3, 54, 'DESFORA POR PAIXÃO')
+);
+    
+INSERT INTO categorias VALUES (
+	);
+    
+    
+SELECT filmes.titulo_filme
+FROM filmes
+LEFT JOIN categorias
+ON categorias.ID_CATEGORIA = filmes.ID_CATEGORIA
+WHERE categooria.nome_categoria = "SPORTS"
+ORDER BY filmes.titulo_filme ASC;
